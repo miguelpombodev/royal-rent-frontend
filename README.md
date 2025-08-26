@@ -1,6 +1,6 @@
 # 🏰 Royal Rent - Frontend
 
-![Royal Rent Screenshot](https://github.com/miguelpombodev/royal-rent-frontend/assets/home_screen.png)
+![Royal Rent Screenshot](https://raw.githubusercontent.com/miguelpombodev/royal-rent-frontend/main/src/assets/home_screen.png)
 
 Premium luxury vehicle rental system built with React and TypeScript.
 
