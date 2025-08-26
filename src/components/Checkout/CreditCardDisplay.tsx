@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { CreditCard as CreditCardIcon } from "lucide-react";
-type CardType = {
-    type: "visa" | "mastercard" | "amex" | "discover" | "generic";
-    tier: "standard" | "platinum" | "black";
-};
-type CreditCardDisplayProps = {
-    cardNumber: string;
-    cardName: string;
-    cardExpiry: string;
-};
+import type { CardType, CreditCardDisplayProps } from "./checkout.interface";
+
 const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
     cardNumber,
     cardName,
     cardExpiry,
+    cardCvv,
 }) => {
     const [cardType, setCardType] = useState<CardType>({
         type: "generic",
         tier: "standard",
     });
     const [isFlipped, setIsFlipped] = useState(false);
+
     // Detect card type based on number
     useEffect(() => {
         if (!cardNumber) {
@@ -28,10 +23,12 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
             });
             return;
         }
+
         // Remove spaces for checking
         const number = cardNumber.replace(/\s+/g, "");
         let type: CardType["type"] = "generic";
         let tier: CardType["tier"] = "standard";
+
         // Check card provider
         if (/^4/.test(number)) {
             type = "visa";
@@ -42,6 +39,7 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
         } else if (/^(6011|65|64[4-9])/.test(number)) {
             type = "discover";
         }
+
         // Simulate premium card detection
         // In a real app, this would be based on BIN ranges provided by the card issuer
         if (/^4000(1|2|3)/.test(number)) {
@@ -53,11 +51,13 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
         } else if (/^5[1-5]8/.test(number)) {
             tier = "black";
         }
+
         setCardType({
             type,
             tier,
         });
     }, [cardNumber]);
+
     const getCardBackground = () => {
         if (cardType.tier === "black") {
             return "bg-gradient-to-br from-gray-900 to-gray-800";
@@ -78,6 +78,7 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
             }
         }
     };
+
     const getCardLogo = () => {
         switch (cardType.type) {
             case "visa":
@@ -103,9 +104,11 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
                 return <CreditCardIcon size={28} className="text-white" />;
         }
     };
+
     const formatCardNumber = (number: string) => {
         // Remove all non-digits
         const digits = number.replace(/\D/g, "");
+
         // Handle Amex format (4-6-5)
         if (cardType.type === "amex") {
             const part1 = digits.slice(0, 4);
@@ -115,6 +118,7 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
                 .filter(Boolean)
                 .join(" ");
         }
+
         // Standard format (4-4-4-4)
         const parts = [];
         for (let i = 0; i < 16; i += 4) {
@@ -122,6 +126,7 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
         }
         return parts.join(" ");
     };
+
     return (
         <div className="perspective-1000 mb-8 max-w-md mx-auto">
             <div
@@ -141,6 +146,7 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
                             </div>
                             <div>{getCardLogo()}</div>
                         </div>
+
                         <div className="w-full mb-4">
                             <div className="text-gray-200 text-sm mb-1">
                                 Card Number
@@ -149,6 +155,7 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
                                 {formatCardNumber(cardNumber || "")}
                             </div>
                         </div>
+
                         <div className="w-full flex justify-between">
                             <div>
                                 <div className="text-gray-200 text-xs">
@@ -167,6 +174,7 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
                                 </div>
                             </div>
                         </div>
+
                         {cardType.tier !== "standard" && (
                             <div className="absolute top-3 right-6">
                                 <div
@@ -182,6 +190,7 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
                         )}
                     </div>
                 </div>
+
                 {/* Back of card */}
                 <div
                     className={`absolute w-full h-full rounded-xl shadow-lg backface-hidden rotate-y-180 ${getCardBackground()}`}
@@ -189,8 +198,8 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
                     <div className="w-full h-12 bg-black mt-6"></div>
                     <div className="px-6 mt-4">
                         <div className="bg-gray-200 h-10 w-full flex items-center justify-end px-4">
-                            <div className="text-gray-800 tracking-widest">
-                                CVV
+                            <div className="text-gray-800 tracking-widest text-sm font-mono">
+                                {cardCvv || "***"}
                             </div>
                         </div>
                         <div className="mt-4 text-white text-xs">
@@ -210,4 +219,5 @@ const CreditCardDisplay: React.FC<CreditCardDisplayProps> = ({
         </div>
     );
 };
+
 export default CreditCardDisplay;

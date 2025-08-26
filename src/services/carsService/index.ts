@@ -6,7 +6,6 @@ import type { IFilterValues } from "../filtersServices/interfaces";
 
 export const carsService = {
     async getAllAvailableCars(filterValues?: IFilterValues) {
-        console.log(filterValues);
         const { data } = await api.get<
             IBaseResponseResult<IGetAllAvailableCars[]>
         >(`${GET_ALL_AVAILABLE_CARS_ENDPOINT_URL}`, {
