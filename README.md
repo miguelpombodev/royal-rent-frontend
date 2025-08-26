@@ -1,54 +1,139 @@
-# React + TypeScript + Vite
+# 🏰 Royal Rent - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Royal Rent Screenshot](https://github.com/miguelpombodev/royal-rent-frontend/assets/your-screenshot.png)
 
-Currently, two official plugins are available:
+Premium luxury vehicle rental system built with React and TypeScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛡️ Technologies
 
-## Expanding the ESLint configuration
+![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-8.0-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
+![Zustand](https://img.shields.io/badge/Zustand-State_Manager-FF6B35?style=for-the-badge&logo=react&logoColor=white)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 18** - Library for building user interfaces
+- **TypeScript** - JavaScript superset with static typing
+- **Vite** - Ultra-fast build tool and dev server
+- **ESLint** - Linter to maintain code quality
+- **Zustand** - State management solution
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📋 Prerequisites
+
+- Node.js (version 18 or higher)
+- npm or yarn
+
+## 🔧 Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/miguelpombodev/royal-rent-frontend.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Navigate to the project directory:
+```bash
+cd royal-rent-frontend
 ```
+
+3. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+## 🏃‍♂️ Running the project
+
+### Development
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The development server will start at `http://localhost:5173`
+
+### Production build
+```bash
+npm run build
+# or
+yarn build
+```
+
+### Preview production build
+```bash
+npm run preview
+# or
+yarn preview
+```
+
+## 📝 Available scripts
+
+- `dev` - Starts the development server
+- `build` - Creates optimized production build
+- `preview` - Previews production build locally
+- `lint` - Runs ESLint linter
+
+## 🏗️ Project structure
+
+```
+royal-rent-frontend/
+├── public/          # Static public files
+├── src/             # Application source code
+│   ├── assets/      # Static files
+│   ├── components/  # Reusable components
+│   ├── hooks/       # Reusable hooks (using Zustand as State Manager)
+│   ├── lib/         # Libraries and configurations
+│   ├── pages/       # Application pages
+│   ├── services/    # Services and APIs
+│   ├── store/       # Zustand store configurations
+│   └── utils/       # Utilities and helpers
+├── package.json     # Dependencies and scripts
+└── vite.config.ts   # Vite configuration
+```
+
+## 🎨 Features
+
+- Modern and responsive interface
+- Luxury vehicle rental system
+- Complete TypeScript typing
+- Hot Module Replacement (HMR) for rapid development
+- State management with Zustand
+- Premium car browsing and booking
+- Secure payment integration
+- User-friendly booking process
+
+## 🚗 How it works
+
+1. **Choose Your Car** - Browse our extensive fleet and select the perfect vehicle for your needs
+2. **Pick Date & Location** - Select your pickup and return dates, along with convenient locations
+3. **Book & Pay** - Complete your booking with our secure payment system and get ready to drive
+
+## 🌟 Screenshots
+
+The application features a clean, modern design with:
+- Hero section with compelling call-to-action
+- Featured cars showcase
+- Step-by-step booking process
+- Responsive design for all devices
+
+## 🤝 Contributing
+
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Miguel Pombo**
+- GitHub: [@miguelpombodev](https://github.com/miguelpombodev)
+
+---
+
+⭐ If this project helped you, consider giving it a star on the repository!
