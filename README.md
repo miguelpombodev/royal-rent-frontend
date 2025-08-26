@@ -1,8 +1,10 @@
 # 🏰 Royal Rent - Frontend
 
-![Royal Rent Screenshot](https://github.com/miguelpombodev/royal-rent-frontend/assets/your-screenshot.png)
+![Royal Rent Screenshot](https://github.com/miguelpombodev/royal-rent-frontend/assets/home_screen.png)
 
 Premium luxury vehicle rental system built with React and TypeScript.
+
+> **📡 Backend API**: The backend for this application is available at [RoyalRentApi](https://github.com/miguelpombodev/RoyalRentApi)
 
 ## 🛡️ Technologies
 
@@ -128,6 +130,10 @@ The application features a clean, modern design with:
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 🔗 Related Repositories
+
+- **[RoyalRentApi](https://github.com/miguelpombodev/RoyalRentApi)** - Backend API for the Royal Rent application
 
 ## 👨‍💻 Author
 
